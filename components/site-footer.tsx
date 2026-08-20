@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
-import { MapPin, Phone, Mail } from 'lucide-react'
+import { motion } from 'motion/react'
+import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react'
 import { Logo } from '@/components/logo'
 
 const quickLinks = [
@@ -34,18 +37,27 @@ function TwitterIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 const socials = [
-  { href: '#', label: 'Facebook', Icon: FacebookIcon },
+  { href: 'https://www.facebook.com/lordneilbenjamingibson', label: 'Facebook', Icon: FacebookIcon },
   { href: '#', label: 'LinkedIn', Icon: LinkedinIcon },
-  { href: '#', label: 'Twitter / X', Icon: TwitterIcon },
+  { href: 'https://x.com/lordneilgibson', label: 'Twitter / X', Icon: TwitterIcon },
 ]
 
 export function SiteFooter() {
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-3">
+    <footer className="relative overflow-hidden bg-primary text-primary-foreground">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(201,168,106,0.08),transparent_60%)]" />
+      <div className="absolute inset-0 bg-grid opacity-[0.03]" />
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="relative mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 md:grid-cols-3"
+      >
         <div>
           <Logo inverted />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-primary-foreground/65">
             Lord Neil Benjamin Gibson is one of the UK&apos;s most successful
             businessmen around the globe. He shifted his family&apos;s business
             from Leeds, England, turning his real estate projects into a
@@ -53,16 +65,21 @@ export function SiteFooter() {
             to the Middle East and, after 27 years in the United States, on to
             Dubai, UAE.
           </p>
-          <div className="mt-6 flex gap-3">
-            {socials.map(({ href, label, Icon }) => (
-              <a
+          <div className="mt-7 flex gap-3">
+            {socials.map(({ href, label, Icon }, i) => (
+              <motion.a
                 key={label}
                 href={href}
                 aria-label={label}
-                className="inline-flex size-10 items-center justify-center rounded-full border border-primary-foreground/20 text-primary-foreground/80 transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + i * 0.1, type: 'spring', stiffness: 200, damping: 15 }}
+                whileHover={{ y: -4, scale: 1.1 }}
+                className="inline-flex size-10 items-center justify-center rounded-xl border border-primary-foreground/15 text-primary-foreground/70 transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground"
               >
                 <Icon className="size-4" />
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -71,13 +88,15 @@ export function SiteFooter() {
           <h3 className="font-serif text-xl font-semibold text-accent">
             Quick Links
           </h3>
-          <ul className="mt-5 space-y-3 text-sm">
+          <div className="mt-5 h-px w-12 bg-accent/40" />
+          <ul className="mt-6 space-y-3.5 text-sm">
             {quickLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-primary-foreground/75 transition-colors hover:text-primary-foreground"
+                  className="group inline-flex items-center gap-1.5 text-primary-foreground/70 transition-colors hover:text-primary-foreground"
                 >
+                  <ArrowUpRight className="size-3.5 text-accent/60 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5" />
                   {link.label}
                 </Link>
               </li>
@@ -89,35 +108,41 @@ export function SiteFooter() {
           <h3 className="font-serif text-xl font-semibold text-accent">
             Get In Touch
           </h3>
-          <ul className="mt-5 space-y-4 text-sm text-primary-foreground/75">
+          <div className="mt-5 h-px w-12 bg-accent/40" />
+          <ul className="mt-6 space-y-5 text-sm text-primary-foreground/70">
             <li className="flex gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
-              <span>
-                Arawak Chamber, Mandar House, 3rd Floor, Johnsons Ghut, Tortola
-                Central, VG1110, BVI
+              <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-foreground/5 text-accent">
+                <MapPin className="size-4" />
+              </span>
+              <span className="leading-relaxed">
+              Jessups, Jessups Estate, P.O. Box 590, Nevis St Kitts.
               </span>
             </li>
             <li className="flex gap-3">
-              <Phone className="mt-0.5 size-4 shrink-0 text-accent" />
-              <a href="tel:+447887447527" className="hover:text-primary-foreground">
-                +44 7887 447527
+              <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-foreground/5 text-accent">
+                <Phone className="size-4" />
+              </span>
+              <a href="tel:+18185750663" className="transition-colors hover:text-primary-foreground">
+              +1 818 575 0663
               </a>
             </li>
             <li className="flex gap-3">
-              <Mail className="mt-0.5 size-4 shrink-0 text-accent" />
+              <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-foreground/5 text-accent">
+                <Mail className="size-4" />
+              </span>
               <a
                 href="mailto:lnbg@lordgibson.co.uk"
-                className="hover:text-primary-foreground"
+                className="transition-colors hover:text-primary-foreground"
               >
                 lnbg@lordgibson.co.uk
               </a>
             </li>
           </ul>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="border-t border-primary-foreground/15">
-        <div className="mx-auto max-w-6xl px-5 py-6 text-xs text-primary-foreground/55 sm:px-8">
+      <div className="relative border-t border-primary-foreground/10">
+        <div className="mx-auto max-w-6xl px-5 py-6 text-xs text-primary-foreground/50 sm:px-8">
           © {new Date().getFullYear()} All Rights Reserved · Lord Gibson UK
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { HeartHandshake, Zap, Landmark } from 'lucide-react'
 import { SectionHeading } from '@/components/section-heading'
+import { Reveal, StaggerGroup, StaggerItem } from '@/components/motion/reveal'
 
 const pillars = [
   {
@@ -21,28 +22,35 @@ const pillars = [
 
 export function Philanthropy() {
   return (
-    <section className="bg-background py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
-          eyebrow="Giving Back"
-          title="Philanthropist &amp; Humanitarian"
-        />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+    <section className="relative overflow-hidden bg-background py-28">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,106,0.05),transparent_60%)]" />
+
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Giving Back"
+            title="Philanthropist & Humanitarian"
+          />
+        </Reveal>
+
+        <StaggerGroup className="mt-16 grid gap-6 md:grid-cols-3">
           {pillars.map(({ Icon, title, body }) => (
-            <article
-              key={title}
-              className="group flex flex-col rounded-2xl border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:shadow-xl"
-            >
-              <span className="mb-6 inline-flex size-12 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                <Icon className="size-6" />
-              </span>
-              <h3 className="font-serif text-2xl font-semibold">{title}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                {body}
-              </p>
-            </article>
+            <StaggerItem key={title} className="h-full">
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 card-glow card-glow-hover hover:-translate-y-1.5">
+                <div className="absolute -right-8 -top-8 size-32 rounded-full bg-accent/5 transition-all duration-500 group-hover:bg-accent/10 group-hover:scale-150" />
+
+                <span className="relative mb-6 inline-flex size-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 group-hover:bg-accent group-hover:text-accent-foreground group-hover:scale-110 group-hover:rotate-3">
+                  <Icon className="size-7" />
+                </span>
+                <h3 className="relative font-serif text-2xl font-semibold">{title}</h3>
+                <div className="relative mt-3 h-px w-12 bg-accent/40 transition-all duration-300 group-hover:w-20" />
+                <p className="relative mt-5 text-sm leading-relaxed text-muted-foreground">
+                  {body}
+                </p>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   )

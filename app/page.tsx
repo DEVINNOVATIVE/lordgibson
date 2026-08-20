@@ -7,6 +7,7 @@ import { Philanthropy } from '@/components/home/philanthropy'
 import { ImperialDeal } from '@/components/home/imperial-deal'
 import { DubaiExpansion } from '@/components/home/dubai-expansion'
 import { ProjectSnh } from '@/components/home/project-snh'
+import { BelizeInvestmentsBrief } from '@/components/home/belize-investments-brief'
 
 export default function HomePage() {
   return (
@@ -14,7 +15,9 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <Hero />
+
         <CeoIntro />
+        <BelizeInvestmentsBrief />
         <WarterPriory />
         <Philanthropy />
         <ImperialDeal />

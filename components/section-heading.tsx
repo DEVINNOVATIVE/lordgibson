@@ -22,13 +22,13 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-accent">
+        <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
           {eyebrow}
         </span>
       )}
       <h2
         className={cn(
-          'font-serif text-3xl font-semibold text-balance sm:text-4xl',
+          'mt-5 font-serif text-4xl font-semibold leading-tight text-balance sm:text-5xl',
           inverted ? 'text-primary-foreground' : 'text-foreground',
         )}
       >
@@ -36,7 +36,7 @@ export function SectionHeading({
       </h2>
       <span
         className={cn(
-          'mt-5 h-px w-16 bg-accent',
+          'mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-accent to-accent/30',
           align === 'center' && 'mx-auto',
         )}
       />

@@ -11,8 +11,8 @@ export function FeaturedPost({ post }: { post: BlogPost }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="group grid overflow-hidden rounded-2xl border border-border bg-card lg:grid-cols-2"
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="group grid overflow-hidden rounded-3xl border border-border bg-card card-glow card-glow-hover lg:grid-cols-2"
     >
       <Link href={`/blog/${post.slug}`} className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
         <Image
@@ -20,13 +20,15 @@ export function FeaturedPost({ post }: { post: BlogPost }) {
           alt={post.imageAlt}
           fill
           priority
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-transform duration-[1.2s] group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </Link>
 
-      <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
-        <div className="mb-4 flex items-center gap-3">
-          <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
+      <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-14">
+        <div className="mb-5 flex items-center gap-3">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
+            <span className="size-1.5 rounded-full bg-accent-foreground/40" />
             Featured
           </span>
           <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
@@ -40,10 +42,11 @@ export function FeaturedPost({ post }: { post: BlogPost }) {
           </Link>
         </h2>
 
-        <p className="mt-4 leading-relaxed text-muted-foreground">{post.excerpt}</p>
+        <p className="mt-5 leading-relaxed text-muted-foreground">{post.excerpt}</p>
 
-        <div className="mt-6 flex items-center gap-4 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        <div className="mt-6 flex items-center gap-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">
           <span>{post.date}</span>
+          <span className="size-1 rounded-full bg-accent/40" />
           <span className="inline-flex items-center gap-1">
             <Clock className="size-3.5" />
             {post.readingTime}
@@ -52,10 +55,10 @@ export function FeaturedPost({ post }: { post: BlogPost }) {
 
         <Link
           href={`/blog/${post.slug}`}
-          className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          className="group/btn mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25"
         >
           Read the story
-          <ArrowUpRight className="size-4" />
+          <ArrowUpRight className="size-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
         </Link>
       </div>
     </motion.div>
