@@ -93,7 +93,7 @@ export function ImperialDeal() {
 
             <div className="mt-10 hidden items-center gap-6 rounded-2xl border border-accent/20 bg-accent/5 p-5 sm:flex">
               <Image
-                src="/gibson-crest.webp"
+                src="/logo.png"
                 alt=""
                 width={48}
                 height={56}

@@ -24,8 +24,8 @@ export function CeoIntro() {
               <div className="absolute inset-0 bg-grid opacity-[0.06]" />
               <div className="relative">
                 <Image
-                  src="/gibson-crest.webp"
-                  alt="Gibson family coat of arms"
+                  src="/logo.png"
+                  alt="Lord Gibson UK"
                   width={140}
                   height={164}
                   className="mx-auto h-auto w-28 drop-shadow-2xl"

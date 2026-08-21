@@ -16,8 +16,8 @@ export function Logo({
       aria-label="Lord Gibson UK — home"
     >
       <Image
-        src="/gibson-crest.webp"
-        alt="Gibson family coat of arms"
+        src="/logo.png"
+        alt="Lord Gibson UK"
         width={44}
         height={52}
         className="h-9 w-auto shrink-0 drop-shadow-sm sm:h-11"
