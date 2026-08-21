@@ -53,7 +53,7 @@ export function SiteFooter() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="relative mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 md:grid-cols-3"
+        className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-8 sm:py-20 md:grid-cols-3 md:gap-12"
       >
         <div>
           <Logo inverted />

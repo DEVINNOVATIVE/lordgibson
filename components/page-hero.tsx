@@ -38,7 +38,7 @@ export function PageHero({
       <div className="absolute inset-0 bg-grid opacity-[0.03]" />
 
       <motion.div
-        className="relative mx-auto flex min-h-[56vh] max-w-6xl flex-col justify-end px-5 pb-16 pt-32 sm:px-8"
+        className="relative mx-auto flex min-h-[48vh] max-w-6xl flex-col justify-end px-4 pb-10 pt-24 sm:min-h-[56vh] sm:px-8 sm:pb-16 sm:pt-32"
         initial="hidden"
         animate="visible"
         variants={{
@@ -52,7 +52,7 @@ export function PageHero({
             visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
           }}
           aria-label="Breadcrumb"
-          className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-primary-foreground/70 backdrop-blur-sm"
+          className="mb-4 inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/5 px-3 py-1.5 text-[0.65rem] font-medium uppercase tracking-[0.16em] text-primary-foreground/70 backdrop-blur-sm sm:mb-5 sm:px-4 sm:text-xs sm:tracking-[0.25em]"
         >
           <Link href="/" className="transition-colors hover:text-accent">
             Home
@@ -65,7 +65,7 @@ export function PageHero({
             hidden: { opacity: 0, y: 25 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
           }}
-          className="font-serif text-5xl font-semibold text-balance text-primary-foreground sm:text-6xl"
+          className="font-serif text-4xl font-semibold text-balance text-primary-foreground sm:text-6xl"
         >
           {title}
         </motion.h1>
@@ -74,7 +74,7 @@ export function PageHero({
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.1 } },
           }}
-          className="mt-5 max-w-xl text-lg leading-relaxed text-primary-foreground/75"
+          className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/75 sm:mt-5 sm:text-lg"
         >
           {subtitle}
         </motion.p>

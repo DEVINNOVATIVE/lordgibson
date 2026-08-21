@@ -24,16 +24,16 @@ const details = [
 
 export function ContactSection() {
   return (
-    <section className="relative overflow-hidden bg-background py-28">
+    <section className="relative overflow-hidden bg-background py-16 sm:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,106,0.04),transparent_60%)]" />
 
-      <div className="relative mx-auto grid max-w-6xl gap-16 px-5 sm:px-8 lg:grid-cols-5 lg:gap-20">
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-8 lg:grid-cols-5 lg:gap-20">
         <div className="lg:col-span-2">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
               Get in Touch
             </span>
-            <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-balance sm:text-5xl">
+            <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight text-balance sm:text-5xl">
               We&apos;d love to hear from you
             </h2>
             <div className="mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-accent to-accent/30" />

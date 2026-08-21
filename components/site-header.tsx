@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
@@ -18,17 +18,52 @@ const links = [
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  const isHome = pathname === '/'
+  const overlay = isHome && !scrolled && !open
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    setOpen(false)
+    setScrolled(window.scrollY > 24)
+  }, [pathname])
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 glass">
-      <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <Logo />
+    <header
+      className={cn(
+        'sticky top-0 z-50 transition-all duration-500',
+        overlay
+          ? 'border-b border-transparent bg-transparent'
+          : 'border-b border-border/60 glass',
+      )}
+    >
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-3 px-4 sm:h-[4.75rem] sm:px-8 lg:px-12">
+        <Logo inverted={overlay} />
 
         <nav
-          className="hidden items-center rounded-full border border-border/50 bg-card/50 p-1 backdrop-blur-sm md:flex"
+          className={cn(
+            'hidden items-center rounded-full border p-1 backdrop-blur-sm md:flex',
+            overlay
+              ? 'border-primary-foreground/15 bg-primary-foreground/5'
+              : 'border-border/50 bg-card/50',
+          )}
           aria-label="Primary"
         >
           {links.map((link) => {
@@ -39,9 +74,13 @@ export function SiteHeader() {
                 href={link.href}
                 className={cn(
                   'relative rounded-full px-5 py-2 text-sm font-medium tracking-wide transition-colors',
-                  active
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground',
+                  overlay
+                    ? active
+                      ? 'bg-accent text-accent-foreground shadow-sm'
+                      : 'text-primary-foreground/70 hover:text-primary-foreground'
+                    : active
+                      ? 'bg-primary text-primary-foreground shadow-sm'
+                      : 'text-muted-foreground hover:text-foreground',
                 )}
               >
                 {link.label}
@@ -62,7 +101,12 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex size-10 items-center justify-center rounded-xl border border-border/50 bg-card/50 text-foreground backdrop-blur-sm md:hidden"
+          className={cn(
+            'inline-flex size-10 shrink-0 items-center justify-center rounded-xl border backdrop-blur-sm md:hidden',
+            overlay
+              ? 'border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground'
+              : 'border-border/50 bg-card/50 text-foreground',
+          )}
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -72,9 +116,9 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="overflow-hidden border-t border-border/60 glass md:hidden">
+        <div className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border/60 glass md:hidden">
           <nav
-            className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4 sm:px-8"
+            className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-8"
             aria-label="Mobile"
           >
             {links.map((link) => (

@@ -12,7 +12,7 @@ export function Logo({
   return (
     <Link
       href="/"
-      className={cn('group flex items-center gap-3', className)}
+      className={cn('group flex min-w-0 items-center gap-2 sm:gap-3', className)}
       aria-label="Lord Gibson UK — home"
     >
       <Image
@@ -20,19 +20,19 @@ export function Logo({
         alt="Gibson family coat of arms"
         width={44}
         height={52}
-        className="h-11 w-auto drop-shadow-sm"
+        className="h-9 w-auto shrink-0 drop-shadow-sm sm:h-11"
         priority
       />
-      <span className="flex flex-col leading-none">
+      <span className="flex min-w-0 flex-col leading-none">
         <span
           className={cn(
-            'font-serif text-xl font-semibold tracking-wide',
+            'font-serif text-lg font-semibold tracking-wide sm:text-xl',
             inverted ? 'text-primary-foreground' : 'text-foreground',
           )}
         >
           Lord Gibson
         </span>
-        <span className="mt-0.5 text-[0.65rem] font-medium uppercase tracking-[0.35em] text-accent">
+        <span className="mt-0.5 text-[0.58rem] font-medium uppercase tracking-[0.18em] text-accent sm:text-[0.65rem] sm:tracking-[0.35em]">
           United Kingdom
         </span>
       </span>

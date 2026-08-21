@@ -105,7 +105,7 @@ const facts = [
 
 export function WarterPriory() {
   return (
-    <section className="relative overflow-hidden bg-background py-24 sm:py-32">
+    <section id="heritage" className="relative overflow-hidden bg-background py-16 sm:py-24 lg:py-32">
       {/* Background ambient lighting */}
       <div 
         aria-hidden="true" 
@@ -116,7 +116,7 @@ export function WarterPriory() {
         className="pointer-events-none absolute -bottom-40 right-0 -z-10 h-[400px] w-[500px] rounded-full bg-primary/5 blur-3xl"
       />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           
           {/* Left Column: Image & Quick Stats */}

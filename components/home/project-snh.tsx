@@ -21,7 +21,7 @@ export function ProjectSnh() {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '-10%'])
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-32">
+    <section id="vision" ref={ref} className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <motion.div
         className="absolute inset-0"
         style={{ scale: imageScale }}
@@ -38,7 +38,7 @@ export function ProjectSnh() {
       <div className="absolute inset-0 bg-grid opacity-[0.03]" />
 
       <motion.div
-        className="relative mx-auto max-w-4xl px-5 text-center sm:px-8"
+        className="relative mx-auto max-w-4xl px-4 text-center sm:px-8"
         style={{ y: textY }}
       >
         <motion.span
@@ -56,7 +56,7 @@ export function ProjectSnh() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 font-serif text-4xl font-semibold text-balance text-primary-foreground sm:text-5xl lg:text-6xl"
+          className="mt-5 font-serif text-3xl font-semibold text-balance text-primary-foreground sm:mt-6 sm:text-5xl lg:text-6xl"
         >
           Project SNH-INC Bahamas
         </motion.h2>
@@ -102,7 +102,7 @@ export function ProjectSnh() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-12 grid gap-4 sm:grid-cols-3"
+          className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-4"
         >
           {features.map(({ Icon, label, desc }) => (
             <div

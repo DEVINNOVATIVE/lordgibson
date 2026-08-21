@@ -53,7 +53,7 @@ export function BelizeInvestmentsBrief() {
   const current = reports.find((r) => r.id === activeTab) || reports[0]
 
   return (
-    <section className="relative w-full overflow-hidden bg-background py-24 sm:py-32">
+    <section id="belize" className="relative w-full overflow-hidden bg-secondary/30 py-16 sm:py-24 lg:py-32">
       {/* Subtle architectural grid & ambient background glow */}
       <div 
         aria-hidden="true" 
@@ -61,22 +61,22 @@ export function BelizeInvestmentsBrief() {
       />
       <div className="absolute inset-0 bg-grid opacity-[0.015]" />
 
-      <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-6xl px-4 sm:px-8 lg:px-12">
         <Reveal>
           {/* Section Eyebrow & Navigation */}
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+              <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-accent sm:px-3.5 sm:text-xs sm:tracking-[0.25em]">
                 <Building className="size-3.5" />
                 Case File &bull; Belize Chapter
               </div>
-              <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+              <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-balance text-foreground sm:text-5xl">
                 Cayo South &amp; Public Record
               </h2>
             </div>
 
             {/* Pill Switcher */}
-            <div className="inline-flex rounded-2xl border border-border/80 bg-muted/30 p-1.5 backdrop-blur-md">
+            <div className="grid w-full grid-cols-2 rounded-2xl border border-border/80 bg-muted/30 p-1 backdrop-blur-md sm:inline-flex sm:w-auto">
               {reports.map((tab) => {
                 const Icon = tab.icon
                 const isActive = activeTab === tab.id
@@ -84,14 +84,15 @@ export function BelizeInvestmentsBrief() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as 'media' | 'official')}
-                    className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-semibold transition-all duration-300 ${
+                    className={`inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-[0.68rem] font-semibold touch-manipulation transition-all duration-300 sm:gap-2 sm:px-5 sm:text-xs ${
                       isActive
                         ? 'bg-foreground text-background shadow-md'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    <Icon className="size-3.5" />
-                    {tab.tabLabel}
+                    <Icon className="size-3.5 shrink-0" />
+                    <span className="sm:hidden">{tab.id === 'media' ? 'Media' : 'Official'}</span>
+                    <span className="hidden sm:inline">{tab.tabLabel}</span>
                   </button>
                 )
               })}
@@ -131,8 +132,8 @@ export function BelizeInvestmentsBrief() {
               </div>
 
               {/* Status footer link */}
-              <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                <FileText className="size-4 text-accent" />
+              <div className="flex items-start gap-2 text-xs font-medium text-muted-foreground">
+                <FileText className="mt-0.5 size-4 shrink-0 text-accent" />
                 <span>Archive Reference: Standard Bearer Candidacy Records</span>
               </div>
             </div>

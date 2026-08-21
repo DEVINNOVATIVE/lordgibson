@@ -75,7 +75,12 @@
     @apply bg-background text-foreground;
   }
   html {
-    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
   }
   ::selection {
     background-color: var(--accent);
@@ -164,4 +169,59 @@
     0 0 0 1px color-mix(in oklch, var(--accent) 30%, var(--border)),
     0 12px 40px -8px rgba(0, 0, 0, 0.12),
     0 4px 8px -2px rgba(0, 0, 0, 0.06);
+}
+
+.grain::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1) translate3d(0, 0, 0); }
+  100% { transform: scale(1.14) translate3d(-1.4%, -1%, 0); }
+}
+
+.hero-ken {
+  animation: ken-burns 16s ease-out forwards;
+}
+
+@keyframes orbit {
+  to { transform: rotate(360deg); }
+}
+
+.hero-orbit {
+  animation: orbit 32s linear infinite;
+}
+
+@keyframes orbit-rev {
+  to { transform: rotate(-360deg); }
+}
+
+.hero-orbit-rev {
+  animation: orbit-rev 48s linear infinite;
+}
+
+.marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .animate-float,
+  .text-shimmer,
+  .hero-ken,
+  .hero-orbit,
+  .hero-orbit-rev {
+    animation: none;
+  }
 }

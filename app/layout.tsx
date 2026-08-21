@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { ScrollProgress } from '@/components/motion/scroll-progress'
+import { ScrollToTop } from '@/components/motion/scroll-to-top'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -80,6 +81,9 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
   colorScheme: 'light',
   themeColor: '#1a1f36',
 }
@@ -92,6 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable} bg-background`}>
       <body className="font-sans antialiased">
+        <ScrollToTop />
         <ScrollProgress />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

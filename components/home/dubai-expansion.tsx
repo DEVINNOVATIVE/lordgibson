@@ -107,7 +107,7 @@ const keyMilestones = [
 
 export function DubaiExpansion() {
   return (
-    <section className="relative w-full overflow-hidden bg-background py-24 sm:py-32">
+    <section id="dubai" className="relative w-full overflow-hidden bg-background py-16 sm:py-24 lg:py-32">
       {/* Ambient background glows */}
       <div
         aria-hidden="true"
@@ -119,8 +119,8 @@ export function DubaiExpansion() {
       />
       <div className="absolute inset-0 bg-grid opacity-[0.02]" />
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
           
           {/* Left Column: Storytelling & Editorial Copy */}
           <div className="lg:col-span-6">
@@ -128,7 +128,7 @@ export function DubaiExpansion() {
               <div className="space-y-6">
                 
                 {/* Badge */}
-                <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-accent backdrop-blur-md">
+                <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-accent backdrop-blur-md sm:px-4 sm:text-xs sm:tracking-[0.25em]">
                   <Sparkles className="size-3.5" />
                   International Portfolio
                 </div>
@@ -190,7 +190,7 @@ export function DubaiExpansion() {
               <div className="space-y-6">
                 
                 {/* Clean Aspect Image Frame */}
-                <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-[2rem] border border-border/80 bg-muted shadow-2xl transition-all duration-500 hover:shadow-accent/5">
+                <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-2xl border border-border/80 bg-muted shadow-2xl transition-all duration-500 hover:shadow-accent/5 sm:rounded-[2rem]">
                   <Image
                     src="/dubai-skyline.jpg"
                     alt="Modern Dubai skyline at golden hour"
@@ -201,17 +201,18 @@ export function DubaiExpansion() {
                   />
                   
                   {/* Subtle inner highlight border */}
-                  <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/15" />
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/15 sm:rounded-[2rem]" />
                   
                   {/* Floating Location Badge */}
-                  <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/45 px-3.5 py-1.5 text-xs font-medium text-white backdrop-blur-md">
-                    <MapPin className="size-3.5 text-accent" />
-                    Dubai, United Arab Emirates
+                  <div className="absolute right-3 top-3 inline-flex max-w-[calc(100%-1.5rem)] items-center gap-1.5 rounded-full border border-white/20 bg-black/45 px-3 py-1.5 text-[0.65rem] font-medium text-white backdrop-blur-md sm:right-4 sm:top-4 sm:text-xs">
+                    <MapPin className="size-3.5 shrink-0 text-accent" />
+                    <span className="truncate sm:hidden">Dubai, UAE</span>
+                    <span className="hidden sm:inline">Dubai, United Arab Emirates</span>
                   </div>
                 </div>
 
                 {/* Quote Box */}
-                <div className="relative overflow-hidden rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-accent/5 to-card/50 p-6 shadow-sm backdrop-blur-md">
+                <div className="relative overflow-hidden rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-accent/5 to-card/50 p-4 shadow-sm backdrop-blur-md sm:p-6">
                   <div className="flex items-start gap-4">
                     <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent">
                       <Award className="size-5" />

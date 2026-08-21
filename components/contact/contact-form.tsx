@@ -43,7 +43,7 @@ export function ContactForm() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-border bg-card p-14 text-center card-glow"
+          className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-border bg-card p-8 text-center card-glow sm:p-14"
         >
           <div className="absolute -right-12 -top-12 size-48 rounded-full bg-accent/5 blur-2xl" />
           <motion.span
@@ -75,7 +75,7 @@ export function ContactForm() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="rounded-3xl border border-border bg-card p-8 card-glow sm:p-10"
+          className="rounded-3xl border border-border bg-card p-5 card-glow sm:p-10"
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <motion.div
