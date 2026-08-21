@@ -23,7 +23,7 @@ const siteDescription =
   'The official heritage site of Lord Neil Benjamin Gibson — Lord of Wheldrake and Warter Priory, philanthropist, international investor and founder of LNBG International Investments.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lordgibson.co.uk'),
+  metadataBase: new URL('https://lordgibson.vercel.app'),
   title: {
     default: siteTitle,
   },
