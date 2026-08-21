@@ -19,7 +19,7 @@ export function getSmtpConfig() {
     user,
     pass: requireEnv('SMTP_PASS'),
     from: process.env.SMTP_FROM?.trim() || user,
-    to: process.env.CONTACT_TO_EMAIL?.trim() || 'lnbg@lordgibson.co.uk',
+    to: process.env.CONTACT_TO_EMAIL?.trim() || 'LNBG@LNBGLLC.COM',
   }
 }
 

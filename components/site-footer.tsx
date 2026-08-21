@@ -131,10 +131,10 @@ export function SiteFooter() {
                 <Mail className="size-4" />
               </span>
               <a
-                href="mailto:lnbg@lordgibson.co.uk"
+                href="mailto:LNBG@LNBGLLC.COM"
                 className="transition-colors hover:text-primary-foreground"
               >
-                lnbg@lordgibson.co.uk
+                LNBG@LNBGLLC.COM
               </a>
             </li>
           </ul>

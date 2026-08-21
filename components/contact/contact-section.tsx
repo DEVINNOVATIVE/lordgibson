@@ -17,8 +17,8 @@ const details = [
   {
     Icon: Mail,
     label: 'Email',
-    lines: ['lnbg@lordgibson.co.uk'],
-    href: 'mailto:lnbg@lordgibson.co.uk',
+    lines: ['LNBG@LNBGLLC.COM'],
+    href: 'mailto:LNBG@LNBGLLC.COM',
   },
 ]
 
