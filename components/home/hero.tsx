@@ -45,9 +45,9 @@ export function Hero() {
           <Button
             size="lg"
             className="group h-13 rounded-full bg-accent px-8 text-base text-accent-foreground shadow-lg shadow-accent/20 hover:bg-accent/90 hover:shadow-xl hover:shadow-accent/30"
-            render={<Link href="/about" />}
+            render={<Link href="/blog/bullriding-in-belize-lord-neil-gibson" />}
           >
-            Read the Story
+            Read the History
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </Button>
           <Button

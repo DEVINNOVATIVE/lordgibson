@@ -2254,6 +2254,7 @@ export const posts: BlogPost[] = [
     readingTime: '4 min read',
     author: 'admin',
     image: '/blog/belize-bullriding.png',
+    //image: '/blog/header-bg.png',
     imageAlt: 'Professional arena rodeo, bullriding, and stadium festival production',
     tags: [
       'bullriding',
